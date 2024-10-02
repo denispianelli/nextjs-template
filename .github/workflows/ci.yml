@@ -1,14 +1,17 @@
-# This GitHub Actions workflow is designed for Continuous Integration (CI) of a Next.js project.
-# It triggers on  pull request events to the 'main' and 'dev' branches.
+# This GitHub Actions workflow is designed for Continuous Integration (CI) on a Next.js template project.
+# It triggers on pull requests to the 'main' and 'dev' branches.
 #
-# The workflow consists of a single job named 'build' that runs on the latest Ubuntu environment.
+# The workflow consists of a single job named 'build' that runs on an Ubuntu 22.04 environment.
+# It uses a matrix strategy to specify Node.js version 20.
+#
 # The job includes the following steps:
-# 1. Checkout code: Uses the actions/checkout@v2 action to checkout the repository code.
-# 2. Cache pnpm: Uses the actions/cache@v2 action to cache the pnpm store to speed up dependency installation.
-# 3. Install Dependencies: Runs 'pnpm install' to install project dependencies.
-# 4. Run Tests: Runs 'pnpm test' to execute the project's test suite.
-# 5. Lint Code: Runs 'pnpm lint' to lint the project's codebase.
-# 6. Format Code: Runs 'pnpm format' to format the project's codebase.
+# 1. Checkout the repository using the actions/checkout@v4 action.
+# 2. Install pnpm (version 9) using the pnpm/action-setup@v4 action.
+# 3. Set up Node.js with the specified version and enable pnpm caching using the actions/setup-node@v4 action.
+# 4. Install project dependencies using pnpm.
+# 5. Run tests using the 'pnpm test' command.
+# 6. Lint the code using the 'pnpm lint' command.
+# 7. Format the code using the 'pnpm format' command.
 name: CI
 
 on:
@@ -19,19 +22,22 @@ on:
 
 jobs:
   build:
-    runs-on: ubuntu-latest
-
+    runs-on: ubuntu-22.04
+    strategy:
+      matrix:
+        node-version: [20]
     steps:
-      - name: Checkout code
-        uses: actions/checkout@v2
-
-      - name: Cache pnpm
-        uses: actions/cache@v2
+      - uses: actions/checkout@v4
+      - name: Install pnpm
+        uses: pnpm/action-setup@v4
         with:
-          path: ~/.pnpm-store
-          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
-
-      - name: Install Dependencies
+          version: 9
+      - name: Use Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ matrix.node-version }}
+          cache: 'pnpm'
+      - name: Install dependencies
         run: pnpm install
 
       - name: Run Tests
