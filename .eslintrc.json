@@ -1,3 +1,19 @@
 {
-  "extends": ["next/core-web-vitals", "next/typescript", "prettier"]
+  "env": { "jest": true },
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:@next/next/recommended",
+    "plugin:prettier/recommended",
+    "plugin:jest/recommended"
+  ],
+  "plugins": ["prettier", "jest"],
+  "rules": {
+    "jest/no-disabled-tests": "warn",
+    "jest/no-focused-tests": "error",
+    "jest/no-identical-title": "error",
+    "jest/prefer-to-have-length": "warn",
+    "jest/valid-expect": "error",
+    "react/react-in-jsx-scope": "off"
+  }
 }
