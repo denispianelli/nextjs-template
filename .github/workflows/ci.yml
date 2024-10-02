@@ -1,0 +1,44 @@
+# This GitHub Actions workflow is designed for Continuous Integration (CI) of a Next.js project.
+# It triggers on  pull request events to the 'main' and 'dev' branches.
+#
+# The workflow consists of a single job named 'build' that runs on the latest Ubuntu environment.
+# The job includes the following steps:
+# 1. Checkout code: Uses the actions/checkout@v2 action to checkout the repository code.
+# 2. Cache pnpm: Uses the actions/cache@v2 action to cache the pnpm store to speed up dependency installation.
+# 3. Install Dependencies: Runs 'pnpm install' to install project dependencies.
+# 4. Run Tests: Runs 'pnpm test' to execute the project's test suite.
+# 5. Lint Code: Runs 'pnpm lint' to lint the project's codebase.
+# 6. Format Code: Runs 'pnpm format' to format the project's codebase.
+name: CI
+
+on:
+  pull_request:
+    branches:
+      - main
+      - dev
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Cache pnpm
+        uses: actions/cache@v2
+        with:
+          path: ~/.pnpm-store
+          key: ${{ runner.os }}-pnpm-${{ hashFiles('**/pnpm-lock.yaml') }}
+
+      - name: Install Dependencies
+        run: pnpm install
+
+      - name: Run Tests
+        run: pnpm test
+
+      - name: Lint Code
+        run: pnpm lint
+
+      - name: Format Code
+        run: pnpm format
