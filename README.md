@@ -1,36 +1,62 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Next.js Template
 
-## Getting Started
+![Next.js Template](/src/app/opengraph-image.jpg)
 
-First, run the development server:
+[![Vercel Deployment](https://img.shields.io/static/v1?label=Deploy&message=Vercel&color=black)](https://vercel.com/)
+[![Next.js](https://img.shields.io/badge/Next.js-v14-black)](https://nextjs.org/)
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
-```
+## Introduction
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+This template is an optimized Next.js project setup with modern tools for efficient development. It includes configurations for Prettier, ESLint, Husky, Jest, and GitHub Actions, allowing you to quickly start a new Next.js project with best practices in place.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Tech Stack
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- **Framework**: [Next.js 14](https://nextjs.org/)
+- **Language**: [TypeScript](https://www.typescriptlang.org/)
+- **Code Formatting**: [Prettier](https://prettier.io/)
+- **Linting**: [ESLint](https://eslint.org/)
+- **Git Hooks**: [Husky](https://typicode.github.io/husky/)
+- **Pre-commit Code Checking**: [Lint-staged](https://github.com/lint-staged/lint-staged)
+- **Testing Framework**: [Jest](https://jestjs.io/fr/)
+- **CI/CD**: [GitHub Actions](https://github.com/features/actions)
 
-## Learn More
+## Prerequisites
 
-To learn more about Next.js, take a look at the following resources:
+- [Node.js](https://nodejs.org/) (Node.js 18.17.0 or later installed)
+- [pnpm](https://pnpm.io/) (for dependency management)
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Installation
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+1. **Clone the repository**:
 
-## Deploy on Vercel
+     ```bash
+     git clone https://github.com/denispianelli/nextjs-template.git
+     cd nextjs-template
+     ```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+2. **Install dependencies**
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+     ```bash
+     pnpm install
+     ```
+
+## Usage
+
+- Start the development server:  
+  `pnpm dev`
+- Run tests:  
+  `pnpm test`
+- Format with Prettier:  
+  `pnpm format`
+- Lint the code with ESLint:  
+  `pnpm lint`
+
+## GitHub Actions Configuration
+
+This template includes a GitHub Actions configuration file for CI. Tets and
+linting checks will automatically run on `main` and `dev` branches during pull
+requests.
+
+## Deploy
+
+Follow the deployment guides for [Vercel](https://nextjs.org/learn-pages-router/basics/deploying-nextjs-app/deploy).
