@@ -3,7 +3,7 @@
 ![Next.js Template](/src/app/opengraph-image.jpg)
 
 [![Vercel Deployment](https://img.shields.io/static/v1?label=Deploy&message=Vercel&color=black)](https://vercel.com/)
-[![Next.js](https://img.shields.io/badge/Next.js-v14-black)](https://nextjs.org/)
+[![Next.js](https://img.shields.io/badge/Next.js-v15-black)](https://nextjs.org/)
 
 ## Introduction
 
