@@ -16,30 +16,33 @@
     "**/*.{js,jsx,ts,tsx,json,css}": "prettier --write"
   },
   "dependencies": {
-    "next": "14.2.14",
-    "react": "^18",
-    "react-dom": "^18"
+    "next": "15.0.3",
+    "react": "19.0.0-rc-2ec26bc4-20241111",
+    "react-dom": "19.0.0-rc-2ec26bc4-20241111"
   },
   "devDependencies": {
-    "@testing-library/jest-dom": "^6.5.0",
+    "@eslint/eslintrc": "^3.1.0",
+    "@eslint/js": "^9.14.0",
+    "@testing-library/jest-dom": "^6.6.3",
     "@testing-library/react": "^16.0.1",
-    "@types/jest": "^29.5.13",
-    "@types/node": "^20",
-    "@types/react": "^18",
-    "@types/react-dom": "^18",
-    "eslint": "^8",
-    "eslint-config-next": "14.2.14",
+    "@types/jest": "^29.5.14",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "eslint": "^9.14.0",
+    "eslint-config-next": "15.0.3",
     "eslint-config-prettier": "^9.1.0",
-    "eslint-plugin-jest": "^28.8.3",
+    "eslint-plugin-jest": "^28.9.0",
     "eslint-plugin-prettier": "^5.2.1",
+    "globals": "^15.12.0",
     "husky": "^9.1.6",
     "jest": "^29.7.0",
     "jest-environment-jsdom": "^29.7.0",
     "lint-staged": "^15.2.10",
-    "postcss": "^8",
+    "postcss": "^8.4.49",
     "prettier": "^3.3.3",
     "prettier-plugin-tailwindcss": "^0.6.8",
-    "tailwindcss": "^3.4.1",
-    "typescript": "^5"
+    "tailwindcss": "^3.4.14",
+    "typescript": "^5.6.3"
   }
 }
